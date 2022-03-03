@@ -54,15 +54,21 @@ function wordLengthClassifier(wordsList) {
 
 
 /*Dado un string retorna si este es o no un palíndromo. No debe diferenciar entre mayúsculas y minúsculas*/
+console.log
 
-let onVerificationWordA = "reconocer";
-let onVerificationWordB = "querer";
-let onVerificationWordC = "Gomosos";
-let onVerificationWordD = "Somos";
+let onVerificationWordA = "reconocer"
+let onVerificationWordB = "querer"
+let onVerificationWordC = "Gomosos"
+let onVerificationWordD = "Somos"
 
 function palindromeVerifier(word) {
-   // :)
+    return word.split('').reverse().join('') == word
 }
+
+console.log(palindromeVerifier('reconocer'))
+console.log(palindromeVerifier('querer'))
+console.log(palindromeVerifier('Gomosos'))
+console.log(palindromeVerifier('Somos'))
 
 
 /*Dado un objeto que contiene una lista de palabras contar el
