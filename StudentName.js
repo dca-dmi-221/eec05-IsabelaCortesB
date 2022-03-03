@@ -41,6 +41,21 @@ let testWordsList = [
     "Meneo",
 ];
 
+function wordSearcherIgnoreCase(targetWord, wordsList) {
+    let minusList = wordsList.map(element => element.toLowerCase());
+    targetWord= targetWord.toLowerCase();
+    targetWord= normalizeString(targetWord);
+    console.log(minusList)
+    console.log(minusList.some(element => targetWord.toLowerCase() === element ))
+}
+
+function normalizeString (targetWord) {
+    return targetWord = targetWord.normalize ("NFD").replace(/[\u0300-\u036f]/g,"");
+}
+wordSearcherIgnoreCase(testTargetWordA,testWordsList);
+wordSearcherIgnoreCase(testTargetWordB,testWordsList);
+wordSearcherIgnoreCase(testTargetWordC,testWordsList);
+
 // pruebe para cada palabra A, B y C
 function wordSearcherIgnoreCase(targetWord, wordsList) {
    // :)
