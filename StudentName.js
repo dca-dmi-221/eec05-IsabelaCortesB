@@ -2,11 +2,27 @@
 
 /*Dada una cadena de texto (string) separe y muestre en consola los caracteres de forma desordenada uno por línea, 1 caracter a la vez.*/
 
-let testWord = "esternocleidomastoideo";
+let testWord = "esternocleidomastoideo"
+
 function wordCutter(word) {
-   // :)
+    word = word.split("")
+    console.log(word)
+
+    let random = word
+        .map(item => ({
+            item,
+            sort: Math.random()
+        }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({
+            item
+        }) => item)
+
+    console.log(random)
+
 }
-wordCutter(testWord);
+
+wordCutter(testWord)
 
 /*Dado un string buscar en un listado e indicar si se encuentra o no
 ahí contenido, debe soportar mayúsculas y minúsculas sin importar
