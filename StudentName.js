@@ -136,8 +136,32 @@ let wordArrayA = ["hola", "¿" ,"cómo", "estás", "?"];
 let wordArrayB = ["te", "ves" ,"igual", "te", "ves", "igual"];
 
 function arrayJoiner(listA, listB) {
- // :)
+    const lists = listA.concat(listB);
+    console.log(lists);
 }
+arrayJoiner(wordArrayA, wordArrayB);
+
+let testWord = "esternocleidomastoideo"
+
+function wordCutter(word) {
+    word = word.split("")
+    console.log(word)
+
+    let random = word
+        .map(item => ({
+            item,
+            sort: Math.random()
+        }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({
+            item
+        }) => item)
+
+    console.log(random)
+
+}
+
+wordCutter(testWord)
 
 
 /*Dado un arreglo de strings indicar qué posiciones del arreglo
