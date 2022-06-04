@@ -2,11 +2,27 @@
 
 /*Dada una cadena de texto (string) separe y muestre en consola los caracteres de forma desordenada uno por línea, 1 caracter a la vez.*/
 
-let testWord = "esternocleidomastoideo";
+let testWord = "esternocleidomastoideo"
+
 function wordCutter(word) {
-   // :)
+    word = word.split("")
+    console.log(word)
+
+    let random = word
+        .map(item => ({
+            item,
+            sort: Math.random()
+        }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({
+            item
+        }) => item)
+
+    console.log(random)
+
 }
-wordCutter(testWord);
+
+wordCutter(testWord)
 
 /*Dado un string buscar en un listado e indicar si se encuentra o no
 ahí contenido, debe soportar mayúsculas y minúsculas sin importar
@@ -24,6 +40,21 @@ let testWordsList = [
     "Chevere",
     "Meneo",
 ];
+
+function wordSearcherIgnoreCase(targetWord, wordsList) {
+    let minusList = wordsList.map(element => element.toLowerCase());
+    targetWord= targetWord.toLowerCase();
+    targetWord= normalizeString(targetWord);
+    console.log(minusList)
+    console.log(minusList.some(element => targetWord.toLowerCase() === element ))
+}
+
+function normalizeString (targetWord) {
+    return targetWord = targetWord.normalize ("NFD").replace(/[\u0300-\u036f]/g,"");
+}
+wordSearcherIgnoreCase(testTargetWordA,testWordsList);
+wordSearcherIgnoreCase(testTargetWordB,testWordsList);
+wordSearcherIgnoreCase(testTargetWordC,testWordsList);
 
 // pruebe para cada palabra A, B y C
 function wordSearcherIgnoreCase(targetWord, wordsList) {
@@ -49,20 +80,45 @@ let testSampleList = [
 ];
 
 function wordLengthClassifier(wordsList) {
+    let totalLetters = 0;
+    wordsList.forEach(word => totalLetters += word.length);
+    const averageSize = totalLetters / wordsList.length;
+
+    const sortedWords = wordsList.sort((a, b) => {
+        if(a.length < b.length) {
+            return -1;
+        } else if(a.length > b.length) {
+            return 1;
+        } else {
+            return 0;
+        }
+    })
+
+    return {
+        averageSize,
+        shortest: sortedWords[0],
+        longest: sortedWords[sortedWords.length - 1],
+    }
     // :)
 }
-
+console.log(wordLengthClassifier(testSampleList))
 
 /*Dado un string retorna si este es o no un palíndromo. No debe diferenciar entre mayúsculas y minúsculas*/
+console.log
 
-let onVerificationWordA = "reconocer";
-let onVerificationWordB = "querer";
-let onVerificationWordC = "Gomosos";
-let onVerificationWordD = "Somos";
+let onVerificationWordA = "reconocer"
+let onVerificationWordB = "querer"
+let onVerificationWordC = "Gomosos"
+let onVerificationWordD = "Somos"
 
 function palindromeVerifier(word) {
-   // :)
+    return word.split('').reverse().join('') == word
 }
+
+console.log(palindromeVerifier('reconocer'))
+console.log(palindromeVerifier('querer'))
+console.log(palindromeVerifier('Gomosos'))
+console.log(palindromeVerifier('Somos'))
 
 
 /*Dado un objeto que contiene una lista de palabras contar el
@@ -80,8 +136,32 @@ let wordArrayA = ["hola", "¿" ,"cómo", "estás", "?"];
 let wordArrayB = ["te", "ves" ,"igual", "te", "ves", "igual"];
 
 function arrayJoiner(listA, listB) {
- // :)
+    const lists = listA.concat(listB);
+    console.log(lists);
 }
+arrayJoiner(wordArrayA, wordArrayB);
+
+let testWord = "esternocleidomastoideo"
+
+function wordCutter(word) {
+    word = word.split("")
+    console.log(word)
+
+    let random = word
+        .map(item => ({
+            item,
+            sort: Math.random()
+        }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({
+            item
+        }) => item)
+
+    console.log(random)
+
+}
+
+wordCutter(testWord)
 
 
 /*Dado un arreglo de strings indicar qué posiciones del arreglo
